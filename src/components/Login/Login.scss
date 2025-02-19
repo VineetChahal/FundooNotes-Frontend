@@ -1,0 +1,70 @@
+.Logincontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: whitesmoke;
+
+    .login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        text-align: center;
+    }
+
+    #logo-name {
+        font-size: 24px;
+        font-weight: bold;
+        color: #f4b400;
+    }
+
+    #sign-in-text {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+
+    #account-text {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+
+    #forgot-link {
+        font-size: 14px;
+        color: #1a73e8;
+        cursor: pointer;
+        align-self: flex-start;
+        margin-top: 10px;
+    }
+
+    #actions {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    #create-account {
+        font-size: 14px;
+        color: #1a73e8;
+        cursor: pointer;
+    }
+
+    #login-button {
+        background-color: #1a73e8;
+        color: white;
+    }
+}

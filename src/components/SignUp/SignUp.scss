@@ -1,0 +1,92 @@
+.signUp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:whitesmoke;
+
+    .signUp {
+        display: flex;
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 700px;
+        text-align: left;
+    }
+
+    .form-section {
+        flex: 1;
+    }
+
+    .image-section {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 70%;
+            height: 60%;
+        }
+    }
+
+    #logo-name {
+        font-size: 24px;
+        font-weight: bold;
+        color: #f4b400;
+        display: block;
+    }
+
+    #content-script {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 10px 0;
+        display: block;
+    }
+
+    #actions {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px; 
+
+        #input-field {
+            flex: 1;
+            height: 45px;
+        }
+    }
+
+    .username {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #password-container {
+        display: flex;
+        gap: 15px;
+
+        .password-field {
+            flex: 1;
+            height: 45px;
+        }
+    }
+
+    #action-buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        gap: 15px;
+    }
+
+    #signUp {
+        font-size: 14px;
+        color: #1a73e8;
+        cursor: pointer;
+    }
+
+    #register-button {
+        background-color: #1a73e8;
+        color: white;
+    }
+}
