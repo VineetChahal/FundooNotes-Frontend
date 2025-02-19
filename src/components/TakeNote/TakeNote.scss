@@ -1,40 +1,49 @@
+.take-note-wrapper-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: whitesmoke;
+}
+
 .take-note-container {
-    width: 500px;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    background: white;
-    cursor: pointer;
+  width: 500px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background: white;
+  cursor: pointer;
 }
 
 .take-note-container.expanded {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    background: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
 }
 
 .title-field {
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .note-field {
-    min-height: 100px;
-    margin-bottom: 10px;
+  min-height: 100px;
+  margin-bottom: 10px;
 }
 
 .note-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .left-actions {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }

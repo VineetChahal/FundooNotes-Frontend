@@ -1,50 +1,54 @@
+import React, { useState } from "react";
 import "./NoteCard.scss";
-import { Button } from "@mui/material";
-import { useState } from "react";
+import { IconButton, TextField, Button } from "@mui/material";
+import { NotificationsNone, PersonAdd, Palette, Image, Archive, MoreVert, Undo, Redo } from "@mui/icons-material";
 
-function Notecard({ title, description }) {
+function NoteCard() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className={`notecard-container ${isExpanded ? "expanded" : ""}`}>
-      <div className="notecard">
-        
-        {/* Notecard Content */}
-        <div className="notecard-content">
-          <span id="notecard-title">{title}</span>
-          <span id="notecard-description">{description}</span>
-        </div>
-
-        {/* Footer Buttons (Only Visible on Hover) */}
-        <div className="notecard-footer">
-          <Button variant="contained">Action 1</Button>
-          <Button variant="contained">Action 2</Button>
-          <Button variant="contained">Action 3</Button>
-          <Button variant="contained">Action 4</Button>
-          <Button variant="contained">Action 5</Button>
-          <Button variant="contained">Action 6</Button>
-        </div>
-      </div>
-
-      {/* Popup Effect */}
-      {isExpanded && (
-        <div className="notecard-popup" onClick={() => setIsExpanded(false)}>
-          <div className="popup-content">
-            <span id="popup-title">{title}</span>
-            <span id="popup-description">{description}</span>
-            <div className="popup-footer">
-              <Button variant="contained">Action 1</Button>
-              <Button variant="contained">Action 2</Button>
-              <Button variant="contained">Action 3</Button>
-              <Button variant="contained">Action 4</Button>
-              <Button variant="contained">Action 5</Button>
-              <Button variant="contained">Action 6</Button>
+    <div className="note-card-container">
+      <div
+        className={`note-card ${isExpanded ? "expanded" : ""}`}
+        onMouseEnter={(e) => e.currentTarget.classList.add("hovered")}
+        onMouseLeave={(e) => e.currentTarget.classList.remove("hovered")}
+        onClick={() => !isExpanded && setIsExpanded(true)}
+      >
+        {!isExpanded ? (
+          <>
+            <TextField placeholder="Title" fullWidth variant="standard" className="note-title" />
+            <TextField placeholder="Take a note..." fullWidth variant="standard" className="note-content" />
+            <div className="note-footer">
+              <IconButton><NotificationsNone /></IconButton>
+              <IconButton><PersonAdd /></IconButton>
+              <IconButton><Palette /></IconButton>
+              <IconButton><Image /></IconButton>
+              <IconButton><Archive /></IconButton>
+              <IconButton><MoreVert /></IconButton>
+            </div>
+          </>
+        ) : (
+          <div className="note-expanded" onClick={(e) => e.stopPropagation()}>
+            <TextField fullWidth variant="standard" className="title-field" placeholder="Title" />
+            <TextField fullWidth multiline variant="standard" className="note-field" placeholder="Take a note..." />
+            <div className="note-footer-expanded">
+              <div className="left-actions">
+                <IconButton><NotificationsNone /></IconButton>
+                <IconButton><PersonAdd /></IconButton>
+                <IconButton><Palette /></IconButton>
+                <IconButton><Image /></IconButton>
+                <IconButton><Archive /></IconButton>
+                <IconButton><MoreVert /></IconButton>
+                <IconButton><Undo /></IconButton>
+                <IconButton><Redo /></IconButton>
+              </div>
+              <Button onClick={() => setIsExpanded(false)}>Close</Button>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
 
-export default Notecard;
+export default NoteCard;
