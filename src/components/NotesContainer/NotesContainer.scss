@@ -1,37 +1,29 @@
-.notes-container{
-    width: 100%;
+.notes-container {
+    padding: 20px;
+    width: 100%; // Full viewport width
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 50px;
-    padding-bottom: 50px;
-}
+    gap: 20px;
 
-.notes-main-container{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start !important;
-    gap: 2px;
-}
-
-.notes-addnote-component{
-    width: 100%;
-    margin-bottom: 0;
-}
-
-
-@media (max-width: 768px) {
-    .notes-container{
+    .notes-addnote-component {
         width: 100%;
+        // max-width: 600px; // Match AddNote width
+        margin: 0 auto;
+    }
+
+    .notes-main-container {
+        width: 100%; // Full width, letting Dashboard handle sidebar resizing
+        display: block; // Remove flex to avoid conflicts with masonry
+        justify-content: flex-start; // Align notes from the left
+        padding: 0; // Remove padding to avoid extra space
+        margin: 0; // Remove margins to fit exactly
+    }
+
+    .notes-inner-container {
+        width: 100%; // Full width of notes-main-container
+        padding: 0 10px; // 5px padding on each side (total 10px)
+        box-sizing: border-box; // Ensure padding doesn’t cause overflow
+        overflow-x: hidden; // Prevent horizontal scrollbar
     }
 }
-
-@media (max-width: 425px) {
-    .notes-container{
-        width: 100%;
-    }
-}
-
-
-

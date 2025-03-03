@@ -7,22 +7,23 @@ const ColorPicker = ({ onColorSelect, initialColor = '#FFFFFF' }) => {
     const [selectedColor, setSelectedColor] = useState(initialColor);
 
     const colors = [
-        "#FFFFFF", "#FAAFA8", "#F39F76", "#FFF8B8",
+        "#FFFFFF","#FAAFA8","#F39F76", "#FFF8B8",
         "#E2F6D3", "#B4DDD3", "#D4E4ED", "#AECCDC",
-        "#D3BFDB", "#F6E2DD", "#E9E3D4", "#EFEFF1"
+        "#D3BFDB", "#F6E2DD", "#E9E3D4", "#EFEFF1",
     ];
 
     const handleColorSelect = (color) => {
         setSelectedColor(color);
-        setShowColors(false); // Hide picker after selection
+        setShowColors(false);
         if (onColorSelect) {
-            onColorSelect(color); // Callback to pass selected color to parent
+            onColorSelect(color);
         }
     };
 
     return (
         <div className="color-picker-container">
             <Palette className="icons" onClick={() => setShowColors(!showColors)} />
+            <div className="selected-color" style={{ backgroundColor: selectedColor }} />
             {showColors && (
                 <div className="color-picker">
                     {colors.map((color) => (

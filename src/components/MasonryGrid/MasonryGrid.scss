@@ -1,0 +1,21 @@
+.masonry-grid {
+    padding: 0; // Remove padding, handled by notes-inner-container
+    width: 100%; // Full width of the container, letting notes-inner-container handle padding
+    margin: 0; // Remove margins to fit exactly
+    display: flex;
+    justify-content: flex-start; // Ensure cards start from the left
+    align-items: flex-start; // Align items at the top for even distribution
+
+    .masonry-item {
+        display: block; // Changed to block for better alignment
+        margin-bottom: 25px; // Consistent margin with gutter
+
+        .note-card-main-container {
+            width: 100%; // Let masonry handle width
+            min-width: 280px; // Fixed minimum width for all cards
+            max-width: 400px; // Fixed maximum width for all cards
+            box-sizing: border-box; // Ensure padding doesn’t affect width
+            flex: none; // Remove flex to avoid content-based stretching
+        }
+    }
+}

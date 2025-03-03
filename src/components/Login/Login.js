@@ -39,20 +39,6 @@ export default function Login() {
             return;
         }
 
-        // loginApiCall({ email, password })
-        //     .then((response) => {
-        //         console.log("Response: ", response);
-        //         localStorage.setItem("token", response.data.id);
-        //         navigate('/dashboard/notes');
-        //         console.log(response);
-
-        //         if (response.status !== 200) {
-        //             throw new Error(response?.data?.message);
-        //         } 
-        //     })
-        //     .catch((error) => {
-        //         console.log("An Error Occurred While Logging In: ", error);
-        //     });
         loginApiCall({ email, password })
         .then((response) => {
             console.log("Full Response: ", response.data);
@@ -102,9 +88,6 @@ export default function Login() {
                 <select className='dropdown'>
                     <option value="en">English (United States)</option>
                     <option value="hi">Hindi</option>
-                    <option value="fr">French</option>
-                    <option value="es">Spanish</option>
-                    <option value="de">German</option>
                 </select>
                 <div className='login-extra-div'>
                     <p>Help</p>

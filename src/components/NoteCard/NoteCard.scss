@@ -1,20 +1,24 @@
 .note-card-main-container {
     border: 1px solid #E0E0E0;
-    margin: 5px;
+    margin: 0; // Remove margins, handled by masonry
     border-radius: 8px;
     transition: 0.5s;
-    width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-left: 15px;
-    gap: 10px;
-    min-height: 150px;
+    padding: 15px;
+    gap: 15px;
+    min-height: 200px; // Fixed min-height for consistent height
+    max-height: 400px; // Fixed max-height to prevent stretching by long content
     overflow: hidden;
+    box-sizing: border-box; // Ensure padding doesn’t affect layout
+    width: 100%; // Let masonry handle width, but enforce fixed width from JS
+    min-width: 0; // Allow shrinking to fit columns
+    max-width: none; // Remove max-width to let JS handle it
 }
 
 .note-card-main-container.expanded-card {
-    max-height: 250px;
+    max-height: 350px; // Reduced max-height for expanded cards to prevent stretching
 }
 
 .note-card-main-container:hover {
@@ -31,6 +35,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    overflow-wrap: break-word; // Ensure long text wraps, not stretches
 }
 
 .card-container-options {
@@ -54,29 +59,38 @@
     margin-left: 25px;
 }
 
+.trash-icons {
+    justify-content: flex-start;
+    padding-left: 10px;
+
+    .icons {
+        margin-right: 15px;
+    }
+}
+
 @media (max-width: 768px) {
     .note-card-main-container {
-        width: 28%;
+        min-height: 180px; // Adjusted min-height for smaller screens
     }
 
     .card-title {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 500;
     }
 
     .card-desc {
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 400;
     }
 }
 
 @media (max-width: 520px) {
     .note-card-main-container {
-        width: 40%;
+        min-height: 150px; // Adjusted min-height for small mobile
     }
 
     .card-title {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 500;
     }
 
@@ -88,58 +102,22 @@
 
 @media (max-width: 425px) {
     .note-card-main-container {
-        width: 75%;
+        min-height: 140px; // Adjusted min-height for tiny screens
     }
 
     .card-title {
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 500;
     }
 
     .card-desc {
-        font-size: 15px;
+        font-size: 12px;
         font-weight: 400;
     }
 }
 
 .custom-modal {
     margin-top: 250px;
-}
-
-.color-picker-container {
-    position: relative;
-}
-
-.color-picker {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    background: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    overflow: visible;
-    width: max-content;
-    min-width: 160px;
-    max-width: 200px;
-}
-
-.color-option {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    transition: transform 0.2s;
-}
-
-.color-option:hover {
-    transform: scale(1.2);
 }
 
 .long-menu-container {
@@ -155,6 +133,6 @@
 .card-desc {
     word-wrap: break-word;
     overflow-wrap: break-word;
-    white-space: normal;
+    white-space: pre-wrap; // Preserve newlines and wrap text
     max-width: 90%;
 }

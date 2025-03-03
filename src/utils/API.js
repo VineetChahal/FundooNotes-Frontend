@@ -1,123 +1,3 @@
-// import axios from "axios";
-
-// const BASE_URL = "https://localhost:5000/api/";
-// const USER_URL = BASE_URL + "users/";
-// const NOTE_URL = BASE_URL + "notes/";
-
-// export const loginApiCall = async (payload) => {
-//     try {
-//         let response = await axios.post(`${USER_URL}login`, payload);
-//         return response;
-//     } catch (error) {
-//         console.error("Error in loginApiCall: ", error);
-//         throw error;
-//     }
-// };
-
-// export const signinApiCall = async (payload) => {
-//     try {
-//         let response = await axios.post(`${USER_URL}register`, payload);
-//         return response;
-//     } catch (error) {
-//         console.error("Error in signinApiCall: ", error);
-//         throw error;
-//     }
-// };
-
-// export const getNotes = async () => {
-//     try {
-//         return await axios.get(`${NOTE_URL}notes`, {
-//             headers: {
-//                 Authorization: localStorage.getItem('token')
-//             }
-//         });
-//     } catch (error) {
-//         console.error("Error in getNotes: ", error);
-//         throw error;
-//     }
-// };
-
-// export const addNoteApi = async (payload) => {
-//     try {
-//         return await axios.post("https://fundoonotes.incubation.bridgelabz.com/api/notes/addNotes", payload, {
-//             headers: {
-//                 Authorization: localStorage.getItem('token')
-//             }
-//         });
-//     } catch (error) {
-//         console.error("Error in addNoteApi: ", error);
-//         throw error;
-//     }
-// };
-
-// export const archiveNoteApi = async (payload) => {
-//     try {
-//         return await axios.post("https://fundoonotes.incubation.bridgelabz.com/api/notes/archiveNotes", payload, {
-//             headers: {
-//                 Authorization: localStorage.getItem('token')
-//             }
-//         });
-//     } catch (error) {
-//         console.error("Error in archiveNoteApi: ", error);
-//         throw error;
-//     }
-// };
-
-// export const trashNoteApi = async (payload) => {
-//     try {
-//         return await axios.post("https://fundoonotes.incubation.bridgelabz.com/api/notes/trashNotes", payload, {
-//             headers: {
-//                 Authorization: localStorage.getItem('token')
-//             }
-//         });
-//     } catch (error) {
-//         console.error("Error in trashNoteApi: ", error);
-//         throw error;
-//     }
-// };
-
-// export const deleteNoteForeverApi = async (payload) => {
-//     try {
-
-//         return await axios.post("https://fundoonotes.incubation.bridgelabz.com/api/notes/deleteForeverNotes", payload, {
-//             headers: {
-//                 Authorization: localStorage.getItem('token')
-//             }
-//         });
-//     } catch (error) {
-//         console.error("Error in deleteNoteForeverApi: ", error);
-//         throw error;
-//     }
-// };
-
-
-// export const editNoteApi = async (payload) => {
-//     try {
-
-//         return await axios.post("https://fundoonotes.incubation.bridgelabz.com/api/notes/updateNotes", payload, {
-//             headers: {
-//                 Authorization: localStorage.getItem('token')
-//             }
-//         });
-//     } catch (error) {
-//         console.error("Error in editNoteApi: ", error);
-//         throw error;
-//     }
-// };
-
-// export const changeColorAPI = async (payload) => {
-//     try {
-
-//         return await axios.post("https://fundoonotes.incubation.bridgelabz.com/api/notes/changesColorNotes", payload, {
-//             headers: {
-//                 Authorization: localStorage.getItem('token')
-//             }
-//         });
-//     } catch (error) {
-//         console.error("Error in editNoteApi: ", error);
-//         throw error;
-//     }
-// };
 import axios from "axios";
 
 const BASE_URL = "http://localhost:5000/api/";
@@ -144,18 +24,6 @@ export const signinApiCall = async (payload) => {
     }
 };
 
-// export const getNotes = async () => {
-//     try {
-//         return await axios.get(`${NOTE_URL}`, {
-//             headers: {
-//                 Authorization: localStorage.getItem('token')
-//             }
-//         });
-//     } catch (error) {
-//         console.error("Error in getNotes: ", error);
-//         throw error;
-//     }
-// };
 export const getNotes = async () => {
     try {
         const tokenObject = JSON.parse(localStorage.getItem('token')); // Parse the stored JSON string
@@ -163,7 +31,7 @@ export const getNotes = async () => {
             throw new Error("No valid token found in localStorage");
         }
         const accessToken = tokenObject.token; // Extract the token string
-        console.log("Sending token in Authorization header:", accessToken); // Debug
+        // console.log("Sending token in Authorization header:", accessToken); // Debug
 
         return await axios.get(`${NOTE_URL}`, {
             headers: {
@@ -176,18 +44,6 @@ export const getNotes = async () => {
     }
 };
 
-// export const addNoteApi = async (payload) => {
-//     try {
-//         return await axios.post(`${NOTE_URL}`, payload, {
-//             headers: {
-//                 Authorization: localStorage.getItem('token')
-//             }
-//         });
-//     } catch (error) {
-//         console.error("Error in addNoteApi: ", error);
-//         throw error;
-//     }
-// };
 export const addNoteApi = async (payload) => {
     try {
         const tokenObject = JSON.parse(localStorage.getItem('token')); // Parse the JSON string
@@ -195,7 +51,7 @@ export const addNoteApi = async (payload) => {
             throw new Error("No valid token found in localStorage");
         }
         const accessToken = tokenObject.token; // Extract the token string
-        console.log("Sending token in Authorization header:", accessToken); // Debug
+        // console.log("Sending token in Authorization header:", accessToken); // Debug
 
         return await axios.post(`${NOTE_URL}`, payload, {
             headers: {
@@ -208,20 +64,6 @@ export const addNoteApi = async (payload) => {
     }
 };
 
-// export const archiveNoteApi = async (payload) => {
-//     try {
-        
-//         return await axios.patch(`${NOTE_URL}${payload.id}/isArchive`, payload, {
-//             headers: {
-//                 Authorization: localStorage.getItem('token')
-//             }
-//         });
-//     } catch (error) {
-//         console.error("Error in archiveNoteApi: ", error);
-//         throw error;
-//     }
-// };
-
 export const archiveNoteApi = async (payload) => {
     try {
         const tokenObject = JSON.parse(localStorage.getItem('token'));
@@ -229,7 +71,7 @@ export const archiveNoteApi = async (payload) => {
             throw new Error("No valid token found in localStorage");
         }
         const accessToken = tokenObject.token;
-        console.log("Sending token in Authorization header:", accessToken);
+        // console.log("Sending token in Authorization header:", accessToken);
 
         const noteId = payload.noteIdList && payload.noteIdList.length > 0 ? payload.noteIdList[0] : null;
         if (!noteId) {
@@ -251,18 +93,6 @@ export const archiveNoteApi = async (payload) => {
     }
 };
 
-// export const trashNoteApi = async (payload) => {
-//     try {
-//         return await axios.patch(`${NOTE_URL}${payload.id}/isTrash`, payload, {
-//             headers: {
-//                 Authorization: localStorage.getItem('token')
-//             }
-//         });
-//     } catch (error) {
-//         console.error("Error in trashNoteApi: ", error);
-//         throw error;
-//     }
-// };
 export const trashNoteApi = async (payload) => {
     try {
         const tokenObject = JSON.parse(localStorage.getItem('token'));
@@ -270,7 +100,7 @@ export const trashNoteApi = async (payload) => {
             throw new Error("No valid token found in localStorage");
         }
         const accessToken = tokenObject.token;
-        console.log("Sending token in Authorization header:", accessToken);
+        // console.log("Sending token in Authorization header:", accessToken);
 
         const noteId = payload.noteIdList && payload.noteIdList.length > 0 ? payload.noteIdList[0] : null;
         if (!noteId) {
@@ -291,43 +121,95 @@ export const trashNoteApi = async (payload) => {
         throw error;
     }
 };
-
 export const deleteNoteForeverApi = async (payload) => {
     try {
-        return await axios.delete(`${NOTE_URL}${payload.id}`, {
+        const tokenObject = JSON.parse(localStorage.getItem('token'));
+        if (!tokenObject || !tokenObject.token) {
+            throw new Error("No valid token found in localStorage");
+        }
+        const accessToken = tokenObject.token;
+        // console.log("Sending token in Authorization header:", accessToken);
+
+        const noteId = payload.noteIdList && payload.noteIdList.length > 0 ? payload.noteIdList[0] : null;
+        if (!noteId) {
+            throw new Error("No note ID provided in payload");
+        }
+
+        // Extract userId from the token (assuming token contains userId)
+        const decodedToken = JSON.parse(atob(accessToken.split('.')[1])); // Decode JWT payload
+        const userId = decodedToken.id || decodedToken.userId; // Adjust based on your token structure
+        if (!userId) {
+            throw new Error("No user ID found in token");
+        }
+
+        // Use DELETE request with userId in the body
+        return await axios.delete(`${NOTE_URL}${noteId}`, {
+            data: { userId },
             headers: {
-                Authorization: localStorage.getItem('token')
+                Authorization: `Bearer ${accessToken}` // Use Bearer token format
             }
         });
     } catch (error) {
         console.error("Error in deleteNoteForeverApi: ", error);
+        if (error.response) {
+            console.log("Full error details:", error.response.data);
+        }
         throw error;
     }
 };
-
 export const editNoteApi = async (payload) => {
     try {
-        return await axios.put(`${NOTE_URL}${payload.id}`, payload, {
+        const tokenObject = JSON.parse(localStorage.getItem('token'));
+        if (!tokenObject || !tokenObject.token) {
+            throw new Error("No valid token found in localStorage");
+        }
+        const accessToken = tokenObject.token;
+        console.log("Sending token in Authorization header:", accessToken);
+        console.log("Edit note payload:", payload);
+
+        const noteId = payload.noteId;
+        if (!noteId || typeof noteId !== 'string' || noteId.trim() === '') {
+            throw new Error("No valid note ID provided in payload");
+        }
+
+        return await axios.put(`${NOTE_URL}${noteId}`, payload, {
             headers: {
-                Authorization: localStorage.getItem('token')
+                Authorization: `Bearer ${accessToken}`
             }
         });
     } catch (error) {
         console.error("Error in editNoteApi: ", error);
+        if (error.response) {
+            console.log("Full error details:", error.response.data);
+        }
         throw error;
     }
 };
 
-// Note: Your backend doesn’t have a direct color change route, so this is omitted or needs clarification
 export const changeColorAPI = async (payload) => {
     try {
-        return await axios.post(`${NOTE_URL}changesColorNotes`, payload, {
+        const tokenObject = JSON.parse(localStorage.getItem('token'));
+        if (!tokenObject || !tokenObject.token) {
+            throw new Error("No valid token found in localStorage");
+        }
+        const accessToken = tokenObject.token;
+        console.log("Sending token in Authorization header:", accessToken);
+
+        const noteId = payload.noteIdList && payload.noteIdList.length > 0 ? payload.noteIdList[0] : null;
+        if (!noteId) {
+            throw new Error("No note ID provided in payload");
+        }
+
+        return await axios.put(`${NOTE_URL}${noteId}`, { color: payload.color }, {
             headers: {
-                Authorization: localStorage.getItem('token')
+                Authorization: `Bearer ${accessToken}` 
             }
         });
     } catch (error) {
         console.error("Error in changeColorAPI: ", error);
+        if (error.response) {
+            console.log("Full error details:", error.response.data); 
+        }
         throw error;
     }
 };

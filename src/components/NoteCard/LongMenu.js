@@ -60,11 +60,6 @@ export default function LongMenu({ handleIconClick }) {
           handleClose();
         }}>Delete a Note</MenuItem>
         <MenuItem className='long-menu-item' key={'Add Label'} onClick={handleClose}>Add Label</MenuItem>
-        {/* <MenuItem className='long-menu-item' key={'Add Drawing'} onClick={handleClose}>Add Drawing</MenuItem> */}
-        {/* <MenuItem className='long-menu-item' key={'Make a Copy'} onClick={handleClose}>Make a Copy</MenuItem> */}
-        {/* <MenuItem className='long-menu-item' key={'Show Checkboxes'} onClick={handleClose}>Show Checkboxes</MenuItem> */}
-        {/* <MenuItem className='long-menu-item' key={'Copy to Google Docs'} onClick={handleClose}>Copy to Google Docs</MenuItem> */}
-        {/* <MenuItem className='long-menu-item' key={'Version History'} onClick={handleClose}>Version History</MenuItem> */}
       </Menu>
     </div>
   );
