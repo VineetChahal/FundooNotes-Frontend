@@ -3,7 +3,7 @@ import './ExpandedAddNote.scss';
 import { BellPlus, UserPlus, Image, FolderDown, EllipsisVertical } from 'lucide-react';
 import ColorPicker from '../ColorPicker/ColorPicker';
 
-function ExpandedAddNote({ toggleView, setFunctions, values = null, handleIconClick, selectedColor }) {
+function ExpandedAddNote({ toggleView, setFunctions, values = null, selectedColor , handleColorSelect}) {
     // console.log("ExpandedAddNote props - handleIconClick:", handleIconClick); // Debug prop
     const numLines = values.description ? values.description.split('\n').length : 1;
     const lineHeight = 20;
@@ -56,17 +56,20 @@ function ExpandedAddNote({ toggleView, setFunctions, values = null, handleIconCl
                     <BellPlus className='expended-icons' />
                     <UserPlus className='expended-icons' />
                     <Image className='expended-icons' />
-                    <ColorPicker 
+                    <span 
+                    
+                    style={{border: '1px solid gray', borderRadius: '100%', cursor: 'pointer', height: '20px', width: '20px'}}
+
+                    >
+                        
+                    <ColorPicker
                         onColorSelect={(color) => {
-                            if (typeof handleIconClick === 'function') {
-                                handleIconClick('color', color); // Safely call handleIconClick
-                            } else {
-                                console.error("handleIconClick is not a function in ExpandedAddNote");
-                            }
+                            handleColorSelect(color); 
                         }} 
                         initialColor={selectedColor || '#FFFFFF'} 
                         className="expended-icons" 
-                    />
+                        />
+                        </span>
                     <FolderDown className='expended-icons' />
                     <EllipsisVertical className='expended-icons' />
                 </div>

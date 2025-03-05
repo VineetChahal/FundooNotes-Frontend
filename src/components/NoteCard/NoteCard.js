@@ -54,6 +54,7 @@ const NoteCard = ({ title, description = "", noteDetails, updateList }) => {
         }
     };
 
+   
     return (
         <div
             className={`note-card-main-container ${description.length > MAX_DESCRIPTION_LENGTH ? 'expanded-card' : ''}`}
@@ -90,7 +91,7 @@ const NoteCard = ({ title, description = "", noteDetails, updateList }) => {
                         <BellPlus className='icons' />
                         <UserPlus className='icons' />
                         <Image className='icons' />
-                        <ColorPicker onColorSelect={(color) => handleIconClick('color', color)} initialColor={selectedColor} />
+                        <ColorPicker onColorSelect={(color) => handleIconClick('color', color)} initialColor={selectedColor} ad={"aaaaa"} />
                         <FolderDown onClick={() => handleIconClick('archive')} className='icons' />
                         <div className="long-menu-container">
                             <LongMenu className='icons menu-icon' handleIconClick={handleIconClick} />

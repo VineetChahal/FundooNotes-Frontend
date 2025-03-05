@@ -5,7 +5,7 @@ import ClosedAddNote from './ClosedAddNote';
 import ExpandedAddNote from './ExpandedAddNote';
 import { successToast } from '../../utils/Toast';
 
-const AddNote = ({ updateList, expanded = false, noteDetails, handleIconClick }) => {
+const AddNote = ({ updateList, expanded = false, noteDetails , handleIconClick}) => {
     // console.log("AddNote props - handleIconClick:", handleIconClick); // Debug prop
     const [title, setTitle] = useState(noteDetails ? noteDetails.title : "");
     const [description, setDescription] = useState(noteDetails ? noteDetails.description : "");
@@ -49,6 +49,9 @@ const AddNote = ({ updateList, expanded = false, noteDetails, handleIconClick })
 
         setIsExpanded(prev => !prev);
     };
+    function handleColorSelect (color){
+        setColor(color);
+    }
 
     return (
         <div className='addnote-main-container'>
@@ -57,7 +60,8 @@ const AddNote = ({ updateList, expanded = false, noteDetails, handleIconClick })
                     toggleView={handleAddNote} 
                     setFunctions={{ setTitle, setDescription, setColor }} 
                     values={{ title, description, color }} 
-                    handleIconClick={handleIconClick} // Ensure prop is passed
+                    handleColorSelect={handleColorSelect}
+                    selectedColor={color}
                 />
             ) : (
                 <ClosedAddNote toggleView={handleAddNote} />
