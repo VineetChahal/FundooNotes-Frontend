@@ -15,7 +15,7 @@ const AddNote = ({ updateList, expanded = false, noteDetails , handleIconClick})
     const handleAddNote = () => {
         if (isExpanded && (title || description) && !noteDetails) {
             addNoteApi({ title, description, color })
-                .then((response) => {
+                .then((response) => { 
                     if (response.status !== 201 && response.status !== 200) {
                         throw new Error(response?.data?.message || "Failed to add note");
                     }

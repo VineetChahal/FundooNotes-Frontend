@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Signup from './components/Signup/Signup';
 import DashboardContainer from './components/DashboardContainer/DashboardContainer';
@@ -7,22 +7,26 @@ import TrashContainer from './components/TrashContainer/TrashContainer';
 import ArchiveContainer from './components/ArchiveContainer/ArchiveContainer';
 import Login from './components/Login/Login';
 import { NotesProvider } from './context/NotesContext';
+import ProtectedRoute from './utils/ProtectedRoute';
+import AuthRoute from './utils/AuthRoute';
 
 const RoutingModule = () => {
     const route = createBrowserRouter([
         {
-            path: '',
-            element: <Login />
+            path: '/',
+            element: <ProtectedRoute element={<Login />} />
         },
         {
             path: '/signup',
-            element: <Signup />
+            element: <ProtectedRoute element={<Signup />} />
         },
         {
             path: '/dashboard',
-            element: <NotesProvider>
-                        <DashboardContainer />
-                    </NotesProvider>,
+            element: (
+                <NotesProvider>
+                    <AuthRoute component={DashboardContainer} />
+                </NotesProvider>
+            ),
             children: [
                 {
                     path: 'notes',
@@ -46,7 +50,7 @@ const RoutingModule = () => {
 
     return (
         <RouterProvider router={route} />
-    )
+    );
 }
 
 export default RoutingModule;
